@@ -1,38 +1,47 @@
+import { SourceResponse, ArticleResponse } from '@/types';
+import { Endpoint } from '@/constants';
 import AppLoader from './appLoader';
 
 class AppController extends AppLoader {
-    getSources(callback) {
+    public getSources(callback: (data: SourceResponse) => void): void {
         super.getResp(
             {
-                endpoint: 'sources',
+                endpoint: Endpoint.Sources,
             },
             callback
         );
     }
 
-    getNews(e, callback) {
-        let target = e.target;
-        const newsContainer = e.currentTarget;
+    public getNews(e: Event, callback: (data: ArticleResponse) => void): void {
+        const container = e.currentTarget;
 
-        while (target !== newsContainer) {
-            if (target.classList.contains('source__item')) {
-                const sourceId = target.getAttribute('data-source-id');
-                if (newsContainer.getAttribute('data-source') !== sourceId) {
-                    newsContainer.setAttribute('data-source', sourceId);
-                    super.getResp(
-                        {
-                            endpoint: 'everything',
-                            options: {
-                                sources: sourceId,
-                            },
-                        },
-                        callback
-                    );
-                }
-                return;
-            }
-            target = target.parentNode;
+        if (!(e.target instanceof Element) || !(container instanceof Element)) {
+            return;
         }
+
+        const sourceItem = e.target.closest('.source__item');
+
+        if (!sourceItem || !container.contains(sourceItem)) {
+            return;
+        }
+
+        const sourceId = sourceItem.getAttribute('data-source-id');
+
+        if (!sourceId || container.getAttribute('data-source') === sourceId) {
+            return;
+        }
+
+        container.setAttribute('data-source', sourceId);
+
+        super.getResp(
+            {
+                endpoint: Endpoint.Everything,
+                options: {
+                    sources: sourceId,
+                },
+            },
+            callback
+        );
     }
 }
 
