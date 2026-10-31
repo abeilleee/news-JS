@@ -9,6 +9,7 @@
         "strict": true,
         "noImplicitAny": true,
         "esModuleInterop": true,
+        "types": ["node"],
         "paths": {
             "@/*": ["./src/*"],
             "@components/*": ["./src/components/*"],
