@@ -1,6 +1,8 @@
 import { ArticleResponse, SourceResponse } from '@/types';
+import { NEWS_STATUS_MSG_MAP, SOURCES_STATUS_MSG_MAP, Status } from '@/constants';
 import News from './news/news';
 import Sources from './sources/sources';
+import StatusView from './status/status';
 
 export class AppView {
     private news: News;
@@ -21,8 +23,12 @@ export class AppView {
         this.sources.draw(values);
     }
 
-    public drawEmptyState(): void {
-        this.news.drawEmptyState();
+    public showNewsMessage(status: Status): void {
+        StatusView.showStatusMessage({ status, selector: '.news', msgMap: NEWS_STATUS_MSG_MAP });
+    }
+
+    public showSourcesMessage(status: Status): void {
+        StatusView.showStatusMessage({ status, selector: '.sources', msgMap: SOURCES_STATUS_MSG_MAP });
     }
 }
 

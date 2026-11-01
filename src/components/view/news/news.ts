@@ -51,13 +51,6 @@ class News {
         newsContainer.classList.remove('news--empty');
         newsContainer.appendChild(fragment);
     }
-
-    public drawEmptyState(): void {
-        const newsContainer = getElement<HTMLElement>('.news');
-
-        newsContainer.classList.add('news--empty');
-        newsContainer.textContent = 'To see the latest headlines choose a source from the list above';
-    }
 }
 
 export default News;

@@ -22,6 +22,7 @@ class Sources {
         });
 
         const sources = getElement<HTMLElement>('.sources');
+        sources.innerHTML = '';
         sources.append(fragment);
     }
 }

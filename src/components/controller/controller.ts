@@ -3,16 +3,17 @@ import { Endpoint } from '@/constants';
 import AppLoader from './appLoader';
 
 class AppController extends AppLoader {
-    public getSources(callback: (data: SourceResponse) => void): void {
+    public getSources(callback: (data: SourceResponse) => void, onError: () => void): void {
         super.getResp(
             {
                 endpoint: Endpoint.Sources,
             },
-            callback
+            callback,
+            onError
         );
     }
 
-    public getNews(e: Event, callback: (data: ArticleResponse) => void): void {
+    public getNews(e: Event, callback: (data: ArticleResponse) => void, onError: () => void): void {
         const container = e.currentTarget;
 
         if (!(e.target instanceof Element) || !(container instanceof Element)) {
@@ -40,7 +41,8 @@ class AppController extends AppLoader {
                     sources: sourceId,
                 },
             },
-            callback
+            callback,
+            onError
         );
     }
 }
