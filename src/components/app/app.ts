@@ -14,9 +14,17 @@ class App {
     public start(): void {
         const sources = getElement('.sources');
 
-        sources.addEventListener('click', (e: MouseEvent) =>
-            this.controller.getNews(e, (data) => this.view.drawNews(data))
-        );
+        sources.addEventListener('click', (e: MouseEvent) => {
+            const sourceItem = e.target instanceof HTMLElement ? e.target.closest('.source__item') : null;
+
+            if (!sourceItem) return;
+
+            sources.querySelectorAll('.source__item').forEach((item) => item.classList.remove('source__item--active'));
+            sourceItem.classList.add('source__item--active');
+
+            this.controller.getNews(e, (data) => this.view.drawNews(data));
+        });
+
         this.controller.getSources((data) => this.view.drawSources(data));
     }
 }

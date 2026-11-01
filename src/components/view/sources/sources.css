@@ -26,8 +26,14 @@
     border-radius: 8px;
 }
 
-.source__item:hover,
-.source__item:focus {
+.source__item--active {
+    border-color: #3fcc59;
+    color: #69db7e;
+    box-shadow: 0 0.5em 0.5em -0.4em #3fcc597c;
+}
+
+.source__item:hover:not(.source__item--active),
+.source__item:focus:not(.source__item--active) {
     border-color: #3fcc59;
     color: #69db7e;
     box-shadow: 0 0.5em 0.5em -0.4em #3fcc59;
