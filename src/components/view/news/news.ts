@@ -23,8 +23,17 @@ class News {
                 const newsContent = newsClone.querySelector<HTMLElement>('.news__description-content');
                 const newsReadMoreLink = newsClone.querySelector<HTMLAnchorElement>('.news__read-more a');
 
-                if (newsPhoto)
-                    newsPhoto.style.backgroundImage = `url(${item.urlToImage || 'img/news_placeholder.jpg'})`;
+                if (newsPhoto) {
+                    if (item.urlToImage) {
+                        newsPhoto.style.backgroundImage = `url(${item.urlToImage})`;
+                    } else {
+                        newsPhoto.style.backgroundImage = `url('assets/news_placeholder.png')`;
+                        newsPhoto.style.backgroundColor = '#e7e9ea';
+                        newsPhoto.style.backgroundSize = '60px 60px';
+                        newsPhoto.style.backgroundRepeat = 'repeat';
+                    }
+                }
+
                 if (newsAuthor) newsAuthor.textContent = item.author || item.source.name;
                 if (newsDate) newsDate.textContent = item.publishedAt.slice(0, 10).split('-').reverse().join('-');
                 if (newsTitle) newsTitle.textContent = item.title;
