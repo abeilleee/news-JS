@@ -1,3 +1,15 @@
+.news {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+    grid-gap: 12px;
+
+    @media screen and (max-width: 800px) {
+        & {
+            grid-template-columns: minmax(0, 1fr);
+        }
+    }
+}
+
 .news__item {
     display: flex;
     flex-direction: column;
@@ -90,7 +102,9 @@
     margin-left: -10px;
     opacity: 0;
     vertical-align: middle;
-    transition: margin 0.3s, opacity 0.3s;
+    transition:
+        margin 0.3s,
+        opacity 0.3s;
 }
 
 .news__item .news__description .news__read-more a:hover:after {

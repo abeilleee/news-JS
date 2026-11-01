@@ -1,11 +1,16 @@
 .sources {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     width: 100%;
-    height: 120px;
+    height: 220px;
+    padding: 8px 0;
     overflow: auto;
     align-items: center;
-    font: 300 1em 'Fira Sans', sans-serif;
+    background-color: #80808011;
+    border-radius: 8px;
+    font:
+        300 1em 'Fira Sans',
+        sans-serif;
 }
 
 .source__item {
@@ -14,10 +19,11 @@
     font: inherit;
     line-height: 1;
     margin: 0.5em;
-    padding: 1em 2em;
+    padding: 1em;
     color: #70d6ff;
     transition: 0.25s;
     cursor: pointer;
+    border-radius: 8px;
 }
 
 .source__item:hover,
