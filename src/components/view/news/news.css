@@ -2,12 +2,22 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
     grid-gap: 12px;
+    flex: 1;
 
     @media screen and (max-width: 800px) {
         & {
             grid-template-columns: minmax(0, 1fr);
         }
     }
+}
+
+.news--empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #848484;
 }
 
 .news__item {

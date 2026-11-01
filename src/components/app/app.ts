@@ -14,6 +14,8 @@ class App {
     public start(): void {
         const sources = getElement('.sources');
 
+        this.view.drawEmptyState();
+
         sources.addEventListener('click', (e: MouseEvent) => {
             const sourceItem = e.target instanceof HTMLElement ? e.target.closest('.source__item') : null;
 
