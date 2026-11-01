@@ -1,4 +1,4 @@
-import { Status } from '@/constants';
+import { Status } from '@/types';
 import { getElement } from '@/helpers/getElement';
 import './status.css';
 

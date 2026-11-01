@@ -1,6 +1,7 @@
 import { Source } from './source.interface';
+import { ResponseStatus } from './types';
 
 export interface SourceResponse {
-    status: string;
+    status: ResponseStatus;
     sources: Source[];
 }

@@ -1,7 +1,7 @@
 import AppController from '@components/controller/controller';
 import AppView from '@components/view/appView';
 import { getElement } from '@/helpers/getElement';
-import { Status } from '@/constants';
+import { Status } from '@/types';
 
 class App {
     private controller: AppController;

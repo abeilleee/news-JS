@@ -1,5 +1,5 @@
-import { ArticleResponse, SourceResponse } from '@/types';
-import { NEWS_STATUS_MSG_MAP, SOURCES_STATUS_MSG_MAP, Status } from '@/constants';
+import { ArticleResponse, SourceResponse, Status } from '@/types';
+import { NEWS_STATUS_MSG_MAP, SOURCES_STATUS_MSG_MAP } from '@/constants';
 import News from './news/news';
 import Sources from './sources/sources';
 import StatusView from './status/status';

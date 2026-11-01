@@ -1,5 +1,4 @@
-import { SourceResponse, ArticleResponse } from '@/types';
-import { Endpoint } from '@/constants';
+import { SourceResponse, ArticleResponse, Endpoint } from '@/types';
 import AppLoader from './appLoader';
 
 class AppController extends AppLoader {

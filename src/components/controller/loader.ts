@@ -1,4 +1,4 @@
-import { Endpoint, HttpMethod } from '@/constants';
+import { Endpoint, HttpMethod } from '@/types';
 
 type Options = {
     apiKey: string;
