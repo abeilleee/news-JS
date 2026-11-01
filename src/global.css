@@ -5,6 +5,9 @@
 
 * {
     box-sizing: border-box;
+    font:
+        300 1em 'Fira Sans',
+        sans-serif;
 }
 
 html,
