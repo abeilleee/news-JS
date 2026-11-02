@@ -16,7 +16,7 @@ class App {
         const sources = getElement('.sources');
 
         this.view.showSourcesMessage(Status.Loading);
-        this.view.showNewsMessage(Status.Empty);
+        this.view.showNewsMessage(Status.Initial);
 
         sources.addEventListener('click', (e: MouseEvent) => {
             const sourceItem = e.target instanceof HTMLElement ? e.target.closest('.source__item') : null;

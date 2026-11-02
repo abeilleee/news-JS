@@ -1,4 +1,5 @@
 export type ResponseStatus = 'ok' | 'error';
+export type SourcesStatus = Exclude<Status, Status.Initial>;
 
 export enum Endpoint {
     Sources = 'sources',
@@ -13,6 +14,7 @@ export enum HttpMethod {
 }
 
 export enum Status {
+    Initial,
     Loading,
     Error,
     Empty,

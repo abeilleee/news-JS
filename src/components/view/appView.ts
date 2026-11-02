@@ -1,4 +1,4 @@
-import { ArticleResponse, SourceResponse, Status } from '@/types';
+import { ArticleResponse, SourceResponse, SourcesStatus, Status } from '@/types';
 import { NEWS_STATUS_MSG_MAP, SOURCES_STATUS_MSG_MAP } from '@/constants';
 import News from './news/news';
 import Sources from './sources/sources';
@@ -14,7 +14,14 @@ export class AppView {
     }
 
     public drawNews(data: ArticleResponse): void {
-        const values = data?.articles ? data?.articles : [];
+        const values = data.articles ?? [];
+
+        if (values.length === 0) {
+            this.showNewsMessage(Status.Empty);
+
+            return;
+        }
+
         this.news.draw(values);
     }
 
@@ -27,7 +34,7 @@ export class AppView {
         StatusView.showStatusMessage({ status, selector: '.news', msgMap: NEWS_STATUS_MSG_MAP });
     }
 
-    public showSourcesMessage(status: Status): void {
+    public showSourcesMessage(status: SourcesStatus): void {
         StatusView.showStatusMessage({ status, selector: '.sources', msgMap: SOURCES_STATUS_MSG_MAP });
     }
 }

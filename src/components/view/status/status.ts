@@ -3,14 +3,14 @@ import { getElement } from '@/helpers/getElement';
 import './status.css';
 
 class StatusView {
-    static showStatusMessage({
+    static showStatusMessage<S extends Status>({
         status,
         selector,
         msgMap,
     }: {
-        status: Status;
+        status: S;
         selector: string;
-        msgMap: Record<Status, string>;
+        msgMap: Record<S, string>;
     }): void {
         const element = getElement(selector);
         const msg = msgMap[status];
